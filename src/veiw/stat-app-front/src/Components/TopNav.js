@@ -4,7 +4,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export const TopNav = (props) => {
     return (
-      <Navbar collapseOnSelect className="navbar" fixed="top" expand="lg" bg="dark" variant="dark" props={props}>
+      <Navbar collapseOnSelect className="navbar"  fixed="top" expand="lg" bg="primary" variant="dark" props={props}>
         <Navbar.Brand href="#home">footyForecast</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -13,6 +13,7 @@ export const TopNav = (props) => {
   
             <NavDropdown title="League" id="collasible-nav-dropdown" onSelect={props.changeFunc}>
               <NavDropdown.Item href="#action/3.1" eventKey={39}>Premier League</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.9" eventKey={4}>EURO2020</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2" eventKey={40}>Championship</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3" eventKey={41}>League One</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.4" eventKey={42}>League Two</NavDropdown.Item>

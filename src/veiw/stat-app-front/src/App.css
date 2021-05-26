@@ -38,18 +38,23 @@
   }
 }
 
+.navbar {
+  background-color:#022B3A;
+}
+
 .body {
   padding-top: 65px;
-  background-color:darkgray;
+  background-color:#E1E5F2;
+  color: #1F7A8C;
 }
 
 .fix-card {
-  background-color: rgb(207, 212, 218);
-  color:#282c34;
+  background-color: #BFDBF7;
+  color: #022B3A;
   margin: 2vh;
-  border-color: black;
-  border-radius: 10px;
-  border-width: 3px;
+  border-color: #1F7A8C;
+  /* border-radius: 10px; */
+  border-width: 1px;
   border-style: solid;
   cursor: pointer;
   padding: 2vh;
@@ -68,6 +73,8 @@
 .card-league-img {
   height: 75px;
   padding-top: 15px;
+  
+  border-radius: 50px;
 }
 
 .fix-card-venue {
@@ -93,6 +100,7 @@
   height: 80px;
   padding-left: 15px;
   padding-right: 15px;
+  
 }
  .compare-game {
    padding-top: 20px;

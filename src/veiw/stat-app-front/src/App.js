@@ -1,18 +1,20 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import {ComparePage} from './Components/ComparePage';
 import {FixtureCard} from './Components/FixtureCard';
 import {TopNav} from './Components/TopNav';
-import logo from './england.png';
+
 import axios from "axios";
 
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 
 function App() {
   const [data, setData] = React.useState(null);
   const [compare, setCompare] = React.useState(null);
-  const [leagues, setLeagues] = React.useState(39);
+  const [leagues, setLeagues] = React.useState(4);
 
 
 
