@@ -7,6 +7,8 @@ import {TopNav} from './Components/TopNav';
 
 import axios from "axios";
 
+const config1 = require('./config.json');
+
 
 
 
@@ -14,26 +16,35 @@ import axios from "axios";
 function App() {
   const [data, setData] = React.useState(null);
   const [compare, setCompare] = React.useState(null);
-  const [leagues, setLeagues] = React.useState(4);
+  const [leagues, setLeagues] = React.useState(39);
 
 
 
-
+ 
   React.useEffect(() => {
-    const getFixtures = async (i) => {
-      try {
-        const response = await axios.post(
-          'http://localhost:5000/fixtures',
-          { league: i, season: 2020, next: 5 },
-          { 'Content-Type': 'text/plain' }
-        );
-
-        // console.log("Success: ", response);
-        setData(response.data.data.response)
-      } catch (err) {
-        console.log("error: ", err);
-      }
-
+    const getFixtures = (i) => {
+      
+      const config = {
+        method: 'get',
+        url: `https://v3.football.api-sports.io/fixtures?league=${i}&season=${2021}&next=${10}`,
+        
+        headers: {
+          'x-apisports-key': config1.api_key,
+          'x-rapidapi-host': 'v3.football.api-sports.io'
+        }
+    }
+    axios(config)
+    .then((response) => {
+        const resData = response.data;
+        setData(resData.response)
+        
+      
+    })
+    .catch(function (error) {
+       
+        console.log(error)
+    })
+      
     }
     getFixtures(leagues);
   }, [leagues]);
@@ -73,7 +84,7 @@ function App() {
       </header>
       <body className="body">
         <div>
-          {!compare ? <h2> Fixtures</h2> : <h2>Comparison</h2>}
+          {!compare ? <h2>Fixtures</h2> : <h2>Comparison</h2>}
         </div>
         <div>
           {compare ? compare.map((item, i) => {
@@ -82,8 +93,8 @@ function App() {
           ) : null}
         </div>
         <div>{data && !compare ? data.map((item, i) => {
-          return <FixtureCard className="cards" item={item} key={item.fixture.id} clickFunction={getFixtId} />
-        }) : null}</div>
+          return <FixtureCard className="cards" item={item} key={i} clickFunction={getFixtId} />
+        }) : <h1> null</h1>}</div>
       </body>
 
     </div>
