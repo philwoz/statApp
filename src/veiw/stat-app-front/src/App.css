@@ -113,6 +113,16 @@
    justify-content: center;
  }
 
+ .comp-sub-head {
+   background-color: #BFDBF7;
+ }
+ .comp-stat { 
+  border-color: #1F7A8C;
+  border-bottom: 1px solid;
+  padding-bottom: 3px;
+  
+ }
+
 
  #chart {
   height: 25%;

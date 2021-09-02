@@ -49,22 +49,30 @@ function App() {
     getFixtures(leagues);
   }, [leagues]);
 
+ 
+
 
   const getFixtId = async (id) => {
-    try {
-      const response = await axios.post(
-        'http://localhost:5000/predictions',
-        { fixture: id },
-        { 'Content-Type': 'text/plain' }
-      );
+    const config  = {
+      method: 'get',
+      url: `https://v3.football.api-sports.io/predictions?fixture=${id}`,
 
-      // console.log("Success: ", response);
-
-      setCompare(response.data.data.response);
-      console.log(response.data.data.response);
-    } catch (err) {
-      console.log("error: ", err);
+      headers: {
+        'x-apisports-key': config1.api_key,
+        'x-rapidapi-host': 'v3.football.api-sports.io'
+      }
     }
+  axios(config)
+  .then((response) => {
+      const resData = response.data;
+      console.log(resData.response);
+      setCompare(resData.response);
+      // res.status(200).json({"message":"api-test working", "data": resData});
+  })
+  .catch(function (error) {
+      // res.status(500).json({"message":"api-test not  working", "error": error});
+      console.log(error);
+  })
   }
 
   const backButton = () => {
