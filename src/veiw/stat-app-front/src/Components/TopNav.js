@@ -9,11 +9,10 @@ export const TopNav = (props) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#features">MyAccount</Nav.Link>
+            <Nav.Link href="#features" >Fixtures</Nav.Link>
   
-            <NavDropdown title="League" id="collasible-nav-dropdown" onSelect={props.changeFunc}>
+            <NavDropdown title="Choose League" id="collasible-nav-dropdown" onSelect={props.changeFunc}>
               <NavDropdown.Item href="#action/3.1" eventKey={39}>Premier League</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.9" eventKey={4}>EURO2020</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2" eventKey={40}>Championship</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3" eventKey={41}>League One</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.4" eventKey={42}>League Two</NavDropdown.Item>
@@ -26,7 +25,7 @@ export const TopNav = (props) => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#pricing">Trending</Nav.Link>
+            <Nav.Link href="#result" onClick={() => { props.clickFunc(props.leagues) }}>Results</Nav.Link>
             <Nav.Link href="#deets">My Games</Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               About
