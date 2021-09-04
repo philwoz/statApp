@@ -2,6 +2,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+
 export const TopNav = (props) => {
     return (
       <Navbar collapseOnSelect className="navbar"  fixed="top" expand="lg" bg="primary" variant="dark" props={props}>
@@ -9,7 +10,7 @@ export const TopNav = (props) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#features" >Fixtures</Nav.Link>
+            <Nav.Link href="#fixtures" onClick={() => { props.clickFunc2(props.leagues, props.setData ,props.setResults) }}>Fixtures</Nav.Link>
   
             <NavDropdown title="Choose League" id="collasible-nav-dropdown" onSelect={props.changeFunc}>
               <NavDropdown.Item href="#action/3.1" eventKey={39}>Premier League</NavDropdown.Item>
@@ -25,7 +26,7 @@ export const TopNav = (props) => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#result" onClick={() => { props.clickFunc(props.leagues) }}>Results</Nav.Link>
+            <Nav.Link href="#result" onClick={() => { props.clickFunc(props.leagues, props.setResults) }}>Results</Nav.Link>
             <Nav.Link href="#deets">My Games</Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               About
