@@ -18,12 +18,13 @@ function App() {
   const [compare, setCompare] = React.useState(null);
   const [results, setResults] = React.useState(null);
   const [leagues, setLeagues] = React.useState(39);
+  
 
   React.useEffect(() => {
     getFixtures(leagues, setData, setResults);
   }, [leagues]);
 
-
+  
   const getFixtId = async (id) => {
     const config = {
       method: 'get',
@@ -72,7 +73,7 @@ function App() {
       </body>
       <div>
         {results ? results.map((item, i) => {
-          return <ResultCard item={item} key={i} />
+          return <ResultCard item={item} key={i}/>
         }) : null}
       </div>
     </div>
@@ -80,14 +81,5 @@ function App() {
 }
 
 
-// { results ? return <ResultPage results={results} setResults={setResults} /> : null }
-// const ResultPage = (props) => {
-//   <div>
-//     {props.results ? props.results.map((item, i) => {
-//       return <ResultCard item={item} key={i} />
-//     }) : null}
-
-//   </div>
-// }
 
 export default App;
